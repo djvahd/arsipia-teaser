@@ -11,10 +11,12 @@ if (form && note) {
 
     button.disabled = true;
     try {
+      // Netlify Forms (situs teaser statis) menerima kiriman urlencoded dan membalas HTML, bukan JSON.
+      const netlify = form.hasAttribute("data-netlify");
       const response = await fetch(form.action, {
         method: "POST",
-        headers: { Accept: "application/json" },
-        body: new FormData(form),
+        headers: netlify ? { "Content-Type": "application/x-www-form-urlencoded" } : { Accept: "application/json" },
+        body: netlify ? new URLSearchParams(new FormData(form)) : new FormData(form),
       });
       const data = await response.json().catch(() => ({}));
 
