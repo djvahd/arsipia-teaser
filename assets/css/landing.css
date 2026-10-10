@@ -1,0 +1,708 @@
+/* Context chips */
+.ctx {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.6rem;
+}
+
+.ctx__label {
+  margin-right: 0.2rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.ctx__chip {
+  height: 36px;
+  padding: 0 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--muted);
+  font: 500 0.88rem var(--font);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.ctx__chip:hover {
+  border-color: #d2e3fc;
+  color: var(--blue);
+}
+
+.ctx__chip[aria-pressed="true"] {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+}
+
+/* Hero dipadatkan supaya demo langsung terlihat tanpa scroll */
+.hero {
+  padding: calc(var(--nav-h) + 1rem) 0 1.5rem;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 3.8vw, 3.3rem);
+}
+
+.hero .chip {
+  margin-bottom: 1rem;
+}
+
+.hero__lead {
+  margin-bottom: 1.4rem;
+  font-size: 1.05rem;
+}
+
+/* Hero demo */
+.stage {
+  position: relative;
+  /* Arsa (64px) bertengger tepat di tepi atas jendela, kakinya tidak menimpa bar atau tombol */
+  padding-top: 62px;
+}
+
+.stage .window__bar {
+  min-height: 57px;
+  padding: 0.5rem 1.2rem;
+}
+
+.stage .window__bar .btn {
+  margin-left: auto;
+}
+
+.stage .meter-row {
+  padding: 0.5rem 1.2rem;
+}
+
+.stage .file {
+  padding: 0.38rem 1.1rem;
+}
+
+.stage .file__ext {
+  width: 28px;
+  height: 28px;
+  font-size: 0.58rem;
+}
+
+.stage .file__name {
+  font-size: 0.86rem;
+}
+
+.stage .folders {
+  padding: 0.5rem 1.2rem;
+}
+
+.stage .window__foot {
+  padding: 0.55rem 1.2rem;
+}
+
+/* Layar pendek (laptop): hero beserta strip jaminan harus muat tanpa scroll */
+@media (max-height: 780px) and (min-width: 1001px) {
+  .hero {
+    padding: calc(var(--nav-h) + 0.75rem) 0 0.75rem;
+  }
+
+  .stage {
+    padding-top: 62px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 3.2vw, 2.8rem);
+  }
+
+  .hero__lead {
+    margin-bottom: 1rem;
+    font-size: 0.98rem;
+  }
+
+  .ctx {
+    margin-top: 1rem;
+  }
+
+  .strip__list {
+    padding: 0.45rem 0;
+  }
+}
+
+.hero__arsa {
+  position: absolute;
+  top: 0;
+  right: 16px;
+  z-index: 2;
+  filter: drop-shadow(0 8px 12px rgba(60, 64, 67, 0.25));
+}
+
+.speech {
+  position: absolute;
+  top: 2px;
+  right: 90px;
+  z-index: 2;
+  max-width: 240px;
+  margin: 0;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 18px -10px rgba(60, 64, 67, 0.4);
+  font-size: 0.82rem;
+  color: var(--ink);
+}
+
+.speech::after {
+  content: "";
+  position: absolute;
+  right: -7px;
+  top: 16px;
+  width: 12px;
+  height: 12px;
+  border-top: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+.meter-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem 1.2rem;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.meter-row strong {
+  min-width: 3.2ch;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.meter {
+  flex: 1;
+  height: 8px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.meter i {
+  display: block;
+  width: 12%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--blue), #12a4af);
+  transition: width 0.35s ease;
+}
+
+.file {
+  max-height: 72px;
+  transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.35s ease 0.1s, padding 0.35s ease 0.1s;
+}
+
+.file__ext--img { background: var(--teal-tint); color: var(--teal); }
+
+.files .file:nth-child(odd) { transform: translateX(5px) rotate(-0.4deg); }
+.files .file:nth-child(even) { transform: translateX(-3px) rotate(0.3deg); }
+.files.is-tagged .file { transform: none; }
+
+button.file__to {
+  font-family: var(--font);
+  opacity: 0;
+  cursor: default;
+  transition: opacity 0.25s ease, border-color 0.2s ease;
+}
+
+.files.is-tagged button.file__to {
+  opacity: 1;
+}
+
+.files.is-tagged button.file__to:not(:disabled) {
+  cursor: pointer;
+  border-color: #d2e3fc;
+  color: var(--blue);
+}
+
+/* Penutupan daftar file setelah rapi: baris memudar bergiliran lebih dulu, lalu semuanya menutup
+   bersama dengan mulus, sehingga halaman di bawahnya tidak tersentak naik. */
+.file.is-moved {
+  max-height: 0;
+  padding-block: 0;
+  overflow: hidden;
+  border-top-width: 0;
+  opacity: 0;
+  transform: translateY(12px) scale(0.97);
+  transition:
+    opacity 0.3s ease calc(var(--i, 0) * 70ms),
+    transform 0.3s ease calc(var(--i, 0) * 70ms),
+    max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.75s,
+    padding 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.75s;
+}
+
+.folders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0.9rem 1.2rem;
+  border-top: 1px solid var(--line);
+}
+
+.folder {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.75rem 0.3rem 0.5rem;
+  border-radius: 12px;
+  background: var(--blue-tint);
+  color: var(--blue);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.folder__icon {
+  width: 28px;
+  height: 24px;
+  overflow: visible;
+}
+
+.folder__back {
+  fill: currentColor;
+  opacity: 0.5;
+}
+
+.folder__front {
+  fill: currentColor;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+}
+
+.folder.is-pop .folder__icon {
+  animation: folder-bounce 0.45s ease;
+}
+
+.folder.is-pop .folder__front {
+  animation: folder-lid 0.45s ease;
+}
+
+@keyframes folder-bounce {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.25) translateY(-3px); }
+  100% { transform: scale(1); }
+}
+
+@keyframes folder-lid {
+  0% { transform: scaleY(1); }
+  30% { transform: scaleY(0.78); }
+  100% { transform: scaleY(1); }
+}
+
+/* Ikon file yang sedang melompat ke folder */
+.file-flyer {
+  position: fixed;
+  z-index: 80;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  box-shadow: 0 10px 20px -6px rgba(26, 115, 232, 0.5);
+  pointer-events: none;
+  will-change: translate, rotate, scale;
+}
+
+.file.is-sent .file__name {
+  color: var(--muted);
+  opacity: 0.6;
+}
+
+.file.is-sent button.file__to {
+  opacity: 0;
+}
+
+.folder b {
+  display: grid;
+  place-items: center;
+  min-width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.75rem;
+}
+
+.folder.is-pop b {
+  animation: pop 0.35s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .folder.is-pop .folder__icon,
+  .folder.is-pop .folder__front {
+    animation: none;
+  }
+}
+
+@keyframes pop {
+  50% { transform: scale(1.4); }
+}
+
+.window__foot .btn {
+  pointer-events: auto;
+}
+
+
+/* Saat menuju section lewat menu, lewati padding atas section supaya judulnya
+   mendarat tepat di bawah navbar, bukan 100px lebih rendah. */
+.section {
+  scroll-margin-top: calc(8px - var(--section-pad));
+}
+
+.section--dark {
+  scroll-margin-top: calc(8px - var(--section-pad) - 40px);
+}
+
+#mulai {
+  scroll-margin-top: 0;
+}
+
+/* Chapter 2: kekacauan */
+.chaos {
+  position: relative;
+  height: 160px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.chaos span {
+  position: absolute;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 6px 14px -8px rgba(60, 64, 67, 0.4);
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+  /* Menjauh dari kursor lalu kembali pelan (chaos-repel.js); memakai properti translate/rotate
+     terpisah supaya tidak bentrok dengan transform dari GSAP. */
+  transition: translate 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), rotate 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Chapter 3: titik balik */
+.section--dark {
+  position: relative;
+  padding-top: calc(var(--section-pad) + 40px);
+  background: #0f1b2d;
+  color: #e8eaed;
+}
+
+.section--dark::before {
+  content: "";
+  position: absolute;
+  inset: -1px 0 auto;
+  height: 90px;
+  background: linear-gradient(#fff, rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+
+.section--dark h2 { color: #fff; }
+.section--dark p { color: #aab3c0; }
+.section--dark .eyebrow { color: #8ab4f8; }
+
+.loss {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin: 0 0 3rem;
+  padding: 0;
+  list-style: none;
+}
+
+.loss__card {
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.loss__card strong {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.loss__card span {
+  font-size: 0.95rem;
+  color: #aab3c0;
+}
+
+.loss__question {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(1.6rem, 3.6vw, 2.6rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.section--dark .loss__question { color: #fff; }
+
+.section--dark .loss__answer {
+  margin: 0.5rem 0 0;
+  text-align: center;
+  font-style: italic;
+  color: #8a94a3;
+}
+
+.berganti__arsa {
+  margin: 1.5rem auto 0;
+}
+
+/* Chapter 4: garis langkah */
+.steps-wrap {
+  position: relative;
+}
+
+.steps__line {
+  position: absolute;
+  left: 2%;
+  right: 2%;
+  top: calc(1.75rem + 19px);
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--blue), #12a4af);
+  transform-origin: left center;
+}
+
+.steps-wrap .steps {
+  position: relative;
+  z-index: 1;
+}
+
+/* Chapter 5: teaser gamifikasi */
+.teaser {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 2rem;
+  padding: 1.2rem 1.6rem;
+  border: 1px solid #d2e3fc;
+  border-radius: var(--radius);
+  background: linear-gradient(90deg, var(--blue-tint), #fff);
+}
+
+.teaser p {
+  flex: 1;
+  min-width: 220px;
+  margin: 0;
+  color: var(--ink);
+}
+
+/* Chapter 6: CTA */
+.cta__arsa {
+  margin: 0 auto 1rem;
+}
+
+.cta__alt {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Latar interaktif */
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ambient__item {
+  position: absolute;
+  color: var(--blue);
+  opacity: 0.09;
+}
+
+.ambient__icon {
+  display: block;
+  animation: drift 14s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  from { transform: translateY(0) rotate(-4deg); }
+  to { transform: translateY(-18px) rotate(6deg); }
+}
+
+/* Layar sentuh: target sentuh minimal 40px */
+@media (pointer: coarse) {
+  .ctx__chip {
+    height: 40px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  /* minmax(0, ...) supaya konten yang lebar (mis. baris chip) tidak melebarkan kolom */
+  .hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .loss {
+    grid-template-columns: 1fr;
+  }
+
+  .steps__line {
+    display: none;
+  }
+
+  /* Stiker bab 2 mengalir bergantian; posisi persen hanya aman di layar lebar */
+  .chaos {
+    height: auto;
+    margin-bottom: 1.5rem;
+  }
+
+  .chaos span {
+    position: static;
+    display: inline-block;
+    margin: 0.3rem 0.25rem;
+  }
+}
+
+/* Tap target tautan teks di layar sentuh */
+@media (pointer: coarse) {
+  .cta__alt {
+    padding: 0.6rem 0;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Hero ponsel: lebih ringkas supaya demo cepat terlihat */
+  .hero {
+    padding-top: calc(var(--nav-h) + 0.75rem);
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero__lead {
+    margin-bottom: 1.1rem;
+    font-size: 0.98rem;
+  }
+
+  .hero__actions {
+    gap: 0.6rem;
+  }
+
+  .hero__actions .btn {
+    flex: 1 1 140px;
+    padding: 0 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  /* Chip konteks: satu baris yang bisa digeser, bukan menumpuk ke bawah */
+  .ctx {
+    flex-wrap: nowrap;
+    margin-inline: -5%;
+    padding: 0 5% 0.25rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .ctx::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ctx__label,
+  .ctx__chip {
+    flex: none;
+  }
+
+  /* Bubble ucapan di kiri, Arsa di kanan, tidak lagi menimpa tombol */
+  .stage {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    /* Tinggi panggung dikunci; sisanya jatuh ke bawah jendela, bukan jadi celah di atasnya */
+    align-content: start;
+    gap: 0 0.7rem;
+    padding-top: 0;
+  }
+
+  .speech {
+    position: static;
+    grid-column: 1;
+    justify-self: end;
+    align-self: center;
+    max-width: 14rem;
+    margin: 0 8px 6px 0;
+  }
+
+  /* Bertengger di tepi atas jendela (tumpang tindih 2px), tanpa celah */
+  .hero__arsa {
+    position: static;
+    grid-column: 2;
+    margin: 0 0 -2px;
+  }
+
+  .stage .window {
+    grid-column: 1 / -1;
+  }
+
+  .stage .window__title {
+    display: none;
+  }
+
+  /* Tujuan tiap file tetap terlihat di ponsel: muncul di baris kedua (di bawah nama) begitu
+     saran tampil, dan masih bisa diketuk untuk mengubah tujuan. */
+  .stage .file {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "ext name"
+      "ext to";
+    row-gap: 0.3rem;
+    max-height: 104px;
+  }
+
+  .stage .file__ext { grid-area: ext; }
+  .stage .file__name { grid-area: name; }
+
+  .stage .file__to {
+    grid-area: to;
+    display: none;
+    justify-self: start;
+    min-height: 32px;
+    padding: 0.3rem 0.9rem;
+  }
+
+  .stage .files.is-tagged .file__to {
+    display: inline-flex;
+  }
+
+  /* Aturan max-height di atas lebih spesifik daripada `.file.is-moved`, jadi daftar tidak menutup
+     kalau tidak diulang di sini */
+  .stage .file.is-moved {
+    max-height: 0;
+    row-gap: 0;
+  }
+
+  /* File yang sudah pindah tidak perlu tag lagi */
+  .stage .files .file.is-sent .file__to {
+    display: none;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient__icon {
+    animation: none;
+  }
+}

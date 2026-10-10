@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 430" role="img" aria-labelledby="title desc">
+  <title id="title">Arsipia logo</title>
+  <desc id="desc">Arsipia wordmark with a blue to teal folder A icon.</desc>
+  <defs>
+    <linearGradient id="arsipiaGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a73e8"/>
+      <stop offset="100%" stop-color="#12a4af"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(20 10) scale(.4)">
+    <rect width="1024" height="1024" rx="225" fill="url(#arsipiaGradient)"/>
+    <path fill="#fff" d="M184 832L404 278C426 223 470 194 512 194C554 194 598 223 620 278L840 832C850 857 834 880 806 880H732C710 880 695 868 687 847L625 688H399L337 847C329 868 314 880 292 880H218C190 880 174 857 184 832Z"/>
+    <path fill="url(#arsipiaGradient)" d="M374 650L428 514C435 497 449 488 468 488H585C602 488 615 497 622 514L636 548H712C730 548 743 558 750 574L776 636H642C625 636 612 627 605 611L592 579H484L456 650Z"/>
+  </g>
+  <text x="475" y="286" fill="#202124" font-family="DM Sans, Google Sans, Arial, sans-serif" font-size="190" font-weight="600" letter-spacing="-7">Arsipia</text>
+</svg>

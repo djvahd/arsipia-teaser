@@ -1,0 +1,8 @@
+# Situs teaser statis, dibuat dari proyek utama dengan `php artisan teaser:build`.
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

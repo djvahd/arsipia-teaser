@@ -1,0 +1,204 @@
+/* Halaman 404: angka 404 dengan Arsa sebagai angka nol, file-file tersesat melayang, dan Arsa
+   yang sedang mencari dengan kaca pembesar. Semua animasi mati saat prefers-reduced-motion. */
+
+.notfound {
+  overflow-x: clip;
+  /* Kolom penuh lebar, supaya adegan tidak menyusut mengikuti lebar angka 404 */
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.nf-scene {
+  position: relative;
+  width: min(940px, 100%);
+  height: clamp(230px, 36vw, 310px);
+  margin-bottom: 0.5rem;
+}
+
+/* File-file yang tersesat */
+.nf-files {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.nf-file {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 6px 14px -8px rgba(60, 64, 67, 0.4);
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+  rotate: var(--r);
+  opacity: 0;
+  animation:
+    nf-appear 0.6s ease 0.5s forwards,
+    nf-float var(--d) ease-in-out var(--delay) infinite alternate;
+}
+
+/* Angka 4 - Arsa - 4 */
+.nf-digits {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(0.1rem, 2vw, 1rem);
+}
+
+.nf-num {
+  font-size: clamp(5.5rem, 21vw, 11rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--blue), #12a4af);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation:
+    nf-drop 0.9s cubic-bezier(0.2, 1.5, 0.4, 1) both,
+    nf-wobble 3.6s ease-in-out 1.2s infinite;
+}
+
+.nf-num--b {
+  animation-delay: 0.18s, 1.9s;
+}
+
+.nf-owl {
+  position: relative;
+  display: grid;
+  place-items: center;
+  animation: nf-drop 0.9s cubic-bezier(0.2, 1.5, 0.4, 1) 0.09s both;
+}
+
+.nf-owl .arsa {
+  width: clamp(92px, 16vw, 150px);
+  height: auto;
+}
+
+/* Kaca pembesar yang menyapu bolak-balik di depan Arsa */
+.nf-lens {
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: clamp(48px, 8vw, 76px);
+  height: auto;
+  margin-left: -20%;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 8px rgba(60, 64, 67, 0.3));
+  animation: nf-search 3.4s ease-in-out 1s infinite alternate;
+}
+
+/* Teks, titik pencarian, dan tombol naik pelan bergantian saat muncul */
+.nf-rise {
+  animation: nf-rise 0.7s ease both;
+}
+
+h1.nf-rise { animation-delay: 0.55s; }
+p.nf-rise { animation-delay: 0.7s; }
+a.nf-rise { animation-delay: 0.85s; }
+
+.nf-searching {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.05rem;
+}
+
+.nf-dots {
+  display: inline-flex;
+  gap: 2px;
+  margin-left: 2px;
+}
+
+.nf-dots i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: nf-dot 1.2s ease-in-out infinite;
+}
+
+.nf-dots i:nth-child(2) { animation-delay: 0.2s; }
+.nf-dots i:nth-child(3) { animation-delay: 0.4s; }
+
+/* Di kunjungan pertama, tahan animasi masuk sampai splash selesai supaya terlihat dari awal */
+.has-splash .nf-file,
+.has-splash .nf-num,
+.has-splash .nf-owl,
+.has-splash .nf-lens,
+.has-splash .nf-rise,
+.has-splash .nf-dots i {
+  animation-play-state: paused;
+}
+
+@keyframes nf-drop {
+  0% { opacity: 0; transform: translateY(-120px) scale(0.85); }
+  60% { opacity: 1; }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes nf-wobble {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(-1.5deg); }
+}
+
+@keyframes nf-search {
+  0% { translate: -90px 14px; rotate: -14deg; }
+  50% { translate: 20px -6px; rotate: 6deg; }
+  100% { translate: 95px 12px; rotate: 16deg; }
+}
+
+@keyframes nf-float {
+  from { translate: 0 0; }
+  to { translate: 14px -22px; }
+}
+
+@keyframes nf-appear {
+  to { opacity: 1; }
+}
+
+@keyframes nf-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes nf-dot {
+  0%, 60%, 100% { opacity: 0.25; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-3px); }
+}
+
+@media (max-width: 600px) {
+  /* Di layar kecil hanya empat file: dua di atas, dua di bawah, tidak ada di sisi angka */
+  .nf-file {
+    font-size: 0.72rem;
+  }
+
+  .nf-file:nth-child(4),
+  .nf-file:nth-child(5) {
+    display: none;
+  }
+
+  .nf-file:nth-child(1) { --x: 0% !important; --y: 2% !important; }
+  .nf-file:nth-child(2) { --x: 54% !important; --y: 9% !important; }
+  .nf-file:nth-child(3) { --x: 50% !important; --y: 86% !important; }
+  .nf-file:nth-child(6) { --x: 2% !important; --y: 90% !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nf-file,
+  .nf-num,
+  .nf-owl,
+  .nf-lens,
+  .nf-rise,
+  .nf-dots i {
+    animation: none;
+  }
+
+  .nf-file {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Arsipia app icon</title>
+  <desc id="desc">Blue to teal rounded-square icon with a white A and folder-shaped crossbar.</desc>
+  <defs>
+    <linearGradient id="arsipiaGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a73e8"/>
+      <stop offset="100%" stop-color="#12a4af"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="225" fill="url(#arsipiaGradient)"/>
+  <!-- Bold geometric A -->
+  <path fill="#fff" d="
+    M 184 832
+    L 404 278
+    C 426 223 470 194 512 194
+    C 554 194 598 223 620 278
+    L 840 832
+    C 850 857 834 880 806 880
+    L 732 880
+    C 710 880 695 868 687 847
+    L 625 688
+    L 399 688
+    L 337 847
+    C 329 868 314 880 292 880
+    L 218 880
+    C 190 880 174 857 184 832 Z"/>
+  <!-- Folder-shaped negative space / crossbar -->
+  <path fill="url(#arsipiaGradient)" d="
+    M 374 650
+    L 428 514
+    C 435 497 449 488 468 488
+    L 585 488
+    C 602 488 615 497 622 514
+    L 636 548
+    L 712 548
+    C 730 548 743 558 750 574
+    L 776 636
+    L 642 636
+    C 625 636 612 627 605 611
+    L 592 579
+    L 484 579
+    L 456 650 Z"/>
+</svg>

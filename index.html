@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+try {
+  if (!sessionStorage.getItem('arsipia-splash') && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('has-splash');
+    sessionStorage.setItem('arsipia-splash', '1');
+  }
+} catch (e) {}
+</script>
+<title>Arsipia: Preserving Knowledge, Streamlining Operations</title>
+<meta name="description" content="Arsipia merapikan Google Drive tim dan organisasi, mewariskan pengetahuan saat orang berganti, dan mempercepat serah terima tugas.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/svg+xml" href="/assets/img/arsipia-icon.svg">
+<link rel="preload" href="/assets/img/arsipia-icon.svg" as="image" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/arsa.css">
+<link rel="stylesheet" href="/assets/css/landing.css">
+</head>
+<body>
+
+<div class="splash" aria-hidden="true">
+  <div class="splash__inner">
+    <svg class="arsa splash__arsa is-flying" data-expr="happy" viewBox="0 0 120 120" width="96" height="96" xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" >
+  <g stroke="#f9ab00" stroke-width="5" stroke-linecap="round"><path d="M46 108v6M74 108v6"/></g>
+  <path class="arsa__wing arsa__wing--l" d="M22 62C10 74 12 96 30 104L38 66Z" fill="#1765cc"/>
+  <path class="arsa__wing arsa__wing--r" d="M98 62C110 74 108 96 90 104L82 66Z" fill="#1765cc"/>
+  <path d="M22 44L26 14L46 28Q60 24 74 28L94 14L98 44Q106 60 102 82Q96 110 60 110Q24 110 18 82Q14 60 22 44Z" fill="#1a73e8"/>
+  <ellipse cx="60" cy="88" rx="26" ry="19" fill="#e8f0fe"/>
+  <path d="M50 84q4 4 8 0M62 84q4 4 8 0M56 94q4 4 8 0" stroke="#aecbfa" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <circle cx="43" cy="56" r="15" fill="#fff"/>
+  <circle cx="77" cy="56" r="15" fill="#fff"/>
+  <g class="arsa__eyes arsa__eyes--open">
+    <g class="arsa__pupils">
+      <circle cx="43" cy="57" r="6.5" fill="#202124"/><circle cx="77" cy="57" r="6.5" fill="#202124"/>
+      <circle cx="45" cy="54.5" r="2" fill="#fff"/><circle cx="79" cy="54.5" r="2" fill="#fff"/>
+    </g>
+  </g>
+  <g class="arsa__eyes arsa__eyes--happy" fill="none" stroke="#202124" stroke-width="3.6" stroke-linecap="round"><path d="M36 60q7-10 14 0M70 60q7-10 14 0"/></g>
+  <g class="arsa__eyes arsa__eyes--closed" fill="none" stroke="#202124" stroke-width="3.6" stroke-linecap="round"><path d="M36 58q7 6 14 0M70 58q7 6 14 0"/></g>
+  <g fill="none" stroke="#202124" stroke-width="2.6"><circle cx="43" cy="56" r="17"/><circle cx="77" cy="56" r="17"/></g>
+  <path class="arsa__brow arsa__brow--think" d="M30 36l14 3M90 34l-14 3" fill="none" stroke="#202124" stroke-width="3" stroke-linecap="round"/>
+  <path class="arsa__brow arsa__brow--shock" d="M33 33q10-6 20 0M67 33q10-6 20 0" fill="none" stroke="#202124" stroke-width="3" stroke-linecap="round"/>
+  <path d="M54 68h12l-6 11z" fill="#fbbc04"/>
+  <g class="arsa__cheeks" fill="#f28b82"><ellipse cx="30" cy="74" rx="5" ry="3"/><ellipse cx="90" cy="74" rx="5" ry="3"/></g>
+  <g class="arsa__zzz" fill="none" stroke="#5f6368" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path class="arsa__z arsa__z--a" d="M92 28h8l-8 8h8"/><path class="arsa__z arsa__z--b" d="M104 12h6l-6 6h6"/></g>
+  <g class="arsa__sparkles" fill="#fbbc04"><path d="M12 22l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/><path d="M106 18l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z"/></g>
+</svg>
+    <span class="splash__brand">Arsipia</span>
+    <span class="splash__bar"><i></i></span>
+  </div>
+</div>
+
+<a class="skip" href="#main">Lewati ke konten</a>
+
+<nav class="nav">
+  <div class="nav__bar container">
+    <a href="#top" class="brand"><img class="brand__mark" src="/assets/img/arsipia-icon.svg" alt="" width="30" height="30">Arsipia</a>
+    <input type="checkbox" id="navToggle" class="nav__toggle-input">
+    <ul class="nav__links">
+      <li><a href="#masalah">Masalah</a></li>
+      <li><a href="#cara-kerja">Cara Kerja</a></li>
+      <li><a href="#fitur">Fitur</a></li>
+              <li><a href="#mulai" class="btn btn-primary btn--sm">Daftar Minat</a></li>
+          </ul>
+    <label for="navToggle" class="nav__toggle">Menu</label>
+  </div>
+</nav>
+
+<header class="hero" id="top" data-chapter="1">
+  <div class="container hero__grid">
+    <div>
+      <span class="chip">Untuk tim dan organisasi apa pun</span>
+      <h1>Preserving <em>Knowledge</em>, Streamlining Operations.</h1>
+      <p class="hero__lead">Arsipia adalah lapisan otomasi di atas Google Drive yang merapikan file, mewariskan pengetahuan saat orang berganti, dan mempercepat serah terima tugas. Di kantor, startup, komunitas, atau kampus, <span data-term="team">tim</span> baru tidak perlu mulai dari nol.</p>
+      <div class="hero__actions">
+        <a href="#mulai" class="btn btn-primary">Daftar Minat</a>
+        <a href="#cara-kerja" class="btn btn-outline">Lihat cara kerja</a>
+      </div>
+      <div class="ctx" role="group" aria-label="Pilih konteks contoh">
+        <span class="ctx__label">Contoh untuk:</span>
+        <button type="button" class="ctx__chip" data-ctx="kantor" aria-pressed="true">Kantor</button>
+        <button type="button" class="ctx__chip" data-ctx="startup" aria-pressed="false">Startup</button>
+        <button type="button" class="ctx__chip" data-ctx="komunitas" aria-pressed="false">Komunitas</button>
+        <button type="button" class="ctx__chip" data-ctx="kampus" aria-pressed="false">Kampus</button>
+      </div>
+    </div>
+
+    <div class="stage" id="heroDemo">
+      <p class="speech" id="demoSpeech"><span data-term="team">Tim</span> baru, proyek baru, mulai dari mana?</p>
+      <svg class="arsa hero__arsa" id="demoArsa" data-pet="data-pet" data-pet-drag="data-pet-drag" data-pet-speech="#demoSpeech" data-expr="shock" viewBox="0 0 120 120" width="64" height="64" xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" >
+  <g stroke="#f9ab00" stroke-width="5" stroke-linecap="round"><path d="M46 108v6M74 108v6"/></g>
+  <path class="arsa__wing arsa__wing--l" d="M22 62C10 74 12 96 30 104L38 66Z" fill="#1765cc"/>
+  <path class="arsa__wing arsa__wing--r" d="M98 62C110 74 108 96 90 104L82 66Z" fill="#1765cc"/>
+  <path d="M22 44L26 14L46 28Q60 24 74 28L94 14L98 44Q106 60 102 82Q96 110 60 110Q24 110 18 82Q14 60 22 44Z" fill="#1a73e8"/>
+  <ellipse cx="60" cy="88" rx="26" ry="19" fill="#e8f0fe"/>
+  <path d="M50 84q4 4 8 0M62 84q4 4 8 0M56 94q4 4 8 0" stroke="#aecbfa" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <circle cx="43" cy="56" r="15" fill="#fff"/>
+  <circle cx="77" cy="56" r="15" fill="#fff"/>
+  <g class="arsa__eyes arsa__eyes--open">
+    <g class="arsa__pupils">
+      <circle cx="43" cy="57" r="6.5" fill="#202124"/><circle cx="77" cy="57" r="6.5" fill="#202124"/>
+      <circle cx="45" cy="54.5" r="2" fill="#fff"/><circle cx="79" cy="54.5" r="2" fill="#fff"/>
+    </g>
+  </g>
+  <g class="arsa__eyes arsa__eyes--happy" fill="none" stroke="#202124" stroke-width="3.6" stroke-linecap="round"><path d="M36 60q7-10 14 0M70 60q7-10 14 0"/></g>
+  <g class="arsa__eyes arsa__eyes--closed" fill="none" stroke="#202124" stroke-width="3.6" stroke-linecap="round"><path d="M36 58q7 6 14 0M70 58q7 6 14 0"/></g>
+  <g fill="none" stroke="#202124" stroke-width="2.6"><circle cx="43" cy="56" r="17"/><circle cx="77" cy="56" r="17"/></g>
+  <path class="arsa__brow arsa__brow--think" d="M30 36l14 3M90 34l-14 3" fill="none" stroke="#202124" stroke-width="3" stroke-linecap="round"/>
+  <path class="arsa__brow arsa__brow--shock" d="M33 33q10-6 20 0M67 33q10-6 20 0" fill="none" stroke="#202124" stroke-width="3" stroke-linecap="round"/>
+  <path d="M54 68h12l-6 11z" fill="#fbbc04"/>
+  <g class="arsa__cheeks" fill="#f28b82"><ellipse cx="30" cy="74" rx="5" ry="3"/><ellipse cx="90" cy="74" rx="5" ry="3"/></g>
+  <g class="arsa__zzz" fill="none" stroke="#5f6368" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path class="arsa__z arsa__z--a" d="M92 28h8l-8 8h8"/><path class="arsa__z arsa__z--b" d="M104 12h6l-6 6h6"/></g>
+  <g class="arsa__sparkles" fill="#fbbc04"><path d="M12 22l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/><path d="M106 18l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z"/></g>
+</svg>
+
+      <div class="window">
+        <div class="window__bar">
+          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+          <span class="window__title">Rapikan Kekacauan</span>
+          <button type="button" id="demoAction" class="btn btn-primary btn--sm">Rapikan, Arsa!</button>
+        </div>
+        <div class="meter-row">
+          <span>Kerapian</span>
+          <strong id="demoPercent">12%</strong>
+          <span class="meter" role="progressbar" aria-label="Kerapian Drive" aria-valuemin="0" aria-valuemax="100" aria-valuenow="12"><i id="demoMeter"></i></span>
+        </div>
+        
+                <ul class="files" id="demoFiles">
+                      <li class="file" data-id="0"><span class="file__ext file__ext--doc">DOC</span><span class="file__name">Laporan_FINAL_v7_beneran.docx</span><button type="button" class="file__to" disabled aria-label="Tujuan Laporan_FINAL_v7_beneran.docx: Laporan">Laporan</button></li>
+                      <li class="file" data-id="1"><span class="file__ext file__ext--pdf">PDF</span><span class="file__name">Kontrak vendor (copy).pdf</span><button type="button" class="file__to" disabled aria-label="Tujuan Kontrak vendor (copy).pdf: Legal">Legal</button></li>
+                      <li class="file" data-id="2"><span class="file__ext file__ext--doc">DOC</span><span class="file__name">Notulen rapat (1).docx</span><button type="button" class="file__to" disabled aria-label="Tujuan Notulen rapat (1).docx: Rapat">Rapat</button></li>
+                      <li class="file" data-id="3"><span class="file__ext file__ext--img">JPG</span><span class="file__name">scan0012.jpg</span><button type="button" class="file__to" disabled aria-label="Tujuan scan0012.jpg: Dokumentasi">Dokumentasi</button></li>
+                      <li class="file" data-id="4"><span class="file__ext file__ext--xls">XLS</span><span class="file__name">Rekap_biaya_okt_fix.xlsx</span><button type="button" class="file__to" disabled aria-label="Tujuan Rekap_biaya_okt_fix.xlsx: Keuangan">Keuangan</button></li>
+                      <li class="file" data-id="5"><span class="file__ext file__ext--pdf">PDF</span><span class="file__name">Invoice_catering-2.pdf</span><button type="button" class="file__to" disabled aria-label="Tujuan Invoice_catering-2.pdf: Keuangan">Keuangan</button></li>
+                  </ul>
+        <div class="folders" id="demoFolders" aria-label="Folder tujuan">
+                      <span class="folder" data-dest="Laporan"><svg class="folder__icon" viewBox="0 0 28 24" width="28" height="24" aria-hidden="true"><path class="folder__back" d="M2 5a2 2 0 0 1 2-2h6l3 3h11a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/><path class="folder__front" d="M2 10a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/></svg><span class="folder__name">Laporan</span><b>0</b></span>
+                      <span class="folder" data-dest="Legal"><svg class="folder__icon" viewBox="0 0 28 24" width="28" height="24" aria-hidden="true"><path class="folder__back" d="M2 5a2 2 0 0 1 2-2h6l3 3h11a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/><path class="folder__front" d="M2 10a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/></svg><span class="folder__name">Legal</span><b>0</b></span>
+                      <span class="folder" data-dest="Rapat"><svg class="folder__icon" viewBox="0 0 28 24" width="28" height="24" aria-hidden="true"><path class="folder__back" d="M2 5a2 2 0 0 1 2-2h6l3 3h11a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/><path class="folder__front" d="M2 10a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/></svg><span class="folder__name">Rapat</span><b>0</b></span>
+                      <span class="folder" data-dest="Dokumentasi"><svg class="folder__icon" viewBox="0 0 28 24" width="28" height="24" aria-hidden="true"><path class="folder__back" d="M2 5a2 2 0 0 1 2-2h6l3 3h11a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/><path class="folder__front" d="M2 10a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/></svg><span class="folder__name">Dokumentasi</span><b>0</b></span>
+                      <span class="folder" data-dest="Keuangan"><svg class="folder__icon" viewBox="0 0 28 24" width="28" height="24" aria-hidden="true"><path class="folder__back" d="M2 5a2 2 0 0 1 2-2h6l3 3h11a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/><path class="folder__front" d="M2 10a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"/></svg><span class="folder__name">Keuangan</span><b>0</b></span>
+                  </div>
+        <div class="window__foot">
+          <span id="demoStatus" role="status">6 file berantakan di Drive tim.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="strip">
+  <ul class="container strip__list">
+    <li>
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+      File tetap tersimpan di Google Drive kalian
+    </li>
+    <li>
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+      Tidak ada pemindahan tanpa persetujuan
+    </li>
+    <li>
+      <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+      Minta akses Google Drive, tapi tidak membaca isi file dan tidak menghapus permanen
+    </li>
+  </ul>
+</div>
+
+<main id="main">
+
+  <section class="section" id="masalah" data-chapter="2">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Kerja berjalan</span>
+        <h2>Amnesia organisasi: pengetahuan ikut hilang tiap orang berganti.</h2>
+        <p>Di kantor, startup, komunitas, maupun kampus, file menumpuk dan versi bertabrakan. Begitu orang berganti, pengetahuan operasional ikut hilang. Arsipia hadir supaya penerusnya tidak mulai dari nol.</p>
+      </div>
+      <div class="chaos" aria-hidden="true">
+        <span style="left: 3%; top: 8px; transform: rotate(-6deg)">revisi3_beneran.docx</span>
+        <span style="left: 22%; top: 70px; transform: rotate(4deg)">scan0012.jpg</span>
+        <span style="left: 40%; top: 6px; transform: rotate(-3deg)">FINAL_FIX_2.pdf</span>
+        <span style="left: 58%; top: 74px; transform: rotate(6deg)">siapa pegang akses ini?</span>
+        <span style="left: 74%; top: 12px; transform: rotate(-5deg)">data_baru (1).xlsx</span>
+        <span style="left: 8%; top: 112px; transform: rotate(3deg)">kontak vendor (hilang)</span>
+        <span style="left: 46%; top: 116px; transform: rotate(-4deg)">Copy of Copy of notulen</span>
+        <span style="left: 74%; top: 114px; transform: rotate(5deg)">backup_lama_jangan_hapus</span>
+      </div>
+      <div class="cards cards--4">
+        <article class="card">
+          <div class="tile tile--red">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          </div>
+          <h3>Dokumen tercecer</h3>
+          <p>Laporan, kontrak, notulen, dan template tersebar tanpa struktur yang konsisten.</p>
+        </article>
+        <article class="card">
+          <div class="tile tile--yellow">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg>
+          </div>
+          <h3>Kontak menghilang</h3>
+          <p>Relasi vendor, klien, dan narasumber yang sudah terjalin ikut pergi bersama orang yang membawanya.</p>
+        </article>
+        <article class="card">
+          <div class="tile tile--purple">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14-4M4 5v4h4"/><path d="M4 13a8 8 0 0 0 14 4M20 19v-4h-4"/></svg>
+          </div>
+          <h3>Riset berulang</h3>
+          <p>Tim baru mengulang kesalahan dan riset yang sama karena arsip tak mudah ditemukan.</p>
+        </article>
+        <article class="card">
+          <div class="tile tile--teal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <h3>Bersih-bersih manual</h3>
+          <p>Ratusan file lepas setelah proyek besar dirapikan satu per satu, memakan waktu dan tenaga.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--dark" id="berganti" data-chapter="3">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Titik balik</span>
+        <h2 class="reveal-line">Lalu suatu hari, orang berganti.</h2>
+        <p class="reveal-line">Pengetahuan yang tidak tertulis ikut keluar bersama mereka.</p>
+      </div>
+      <ul class="loss">
+        <li class="loss__card reveal-line"><strong>Rekan resign</strong><span>Folder kerja dan akses ikut terbawa pergi.</span></li>
+        <li class="loss__card reveal-line"><strong>Pindah divisi</strong><span>Konteks proyek tertinggal di kepala yang sudah pindah.</span></li>
+        <li class="loss__card reveal-line"><strong>Pergantian pengurus</strong><span>Catatan serah terima berhenti di janji lisan.</span></li>
+      </ul>
+      <p class="loss__question reveal-line">Dokumen <span data-term="period">tahun</span> lalu di mana?</p>
+      <p class="loss__answer reveal-line">(hening)</p>
+      <svg class="arsa berganti__arsa" data-pet="data-pet" data-pet-sleepy="data-pet-sleepy" data-expr="sleep" viewBox="0 0 120 120" width="90" height="90" xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" >
+  <g stroke="#f9ab00" stroke-width="5" stroke-linecap="round"><path d="M46 108v6M74 108v6"/></g>
+  <path class="arsa__wing arsa__wing--l" d="M22 62C10 74 12 96 30 104L38 66Z" fill="#1765cc"/>
+  <path class="arsa__wing arsa__wing--r" d="M98 62C110 74 108 96 90 104L82 66Z" fill="#1765cc"/>
+  <path d="M22 44L26 14L46 28Q60 24 74 28L94 14L98 44Q106 60 102 82Q96 110 60 110Q24 110 18 82Q14 60 22 44Z" fill="#1a73e8"/>
+  <ellipse cx="60" cy="88" rx="26" ry="19" fill="#e8f0fe"/>
+  <path d="M50 84q4 4 8 0M62 84q4 4 8 0M56 94q4 4 8 0" stroke="#aecbfa" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <circle cx="43" cy="56" r="15" fill="#fff"/>
+  <circle cx="77" cy="56" r="15" fill="#fff"/>
+  <g class="arsa__eyes arsa__eyes--open">
+    <g class="arsa__pupils">
+      <circle cx="43" cy="57" r="6.5" fill="#202124"/><circle cx="77" cy="57" r="6.5" fill="#202124"/>
+      <circle cx="45" cy="54.5" r="2" fill="#fff"/><circle cx="79" cy="54.5" r="2" fill="#fff"/>
+    </g>
+  </g>
+  <g class="arsa__eyes arsa__eyes--happy" fill="none" stroke="#202124" stroke-width="3.6" stroke-linecap="round"><path d="M36 60q7-10 14 0M70 60q7-10 14 0"/></g>
+  <g class="arsa__eyes arsa__eyes--closed" fill="none" stroke="#202124" stroke-width="3.6" stroke-linecap="round"><path d="M36 58q7 6 14 0M70 58q7 6 14 0"/></g>
+  <g fill="none" stroke="#202124" stroke-width="2.6"><circle cx="43" cy="56" r="17"/><circle cx="77" cy="56" r="17"/></g>
+  <path class="arsa__brow arsa__brow--think" d="M30 36l14 3M90 34l-14 3" fill="none" stroke="#202124" stroke-width="3" stroke-linecap="round"/>
+  <path class="arsa__brow arsa__brow--shock" d="M33 33q10-6 20 0M67 33q10-6 20 0" fill="none" stroke="#202124" stroke-width="3" stroke-linecap="round"/>
+  <path d="M54 68h12l-6 11z" fill="#fbbc04"/>
+  <g class="arsa__cheeks" fill="#f28b82"><ellipse cx="30" cy="74" rx="5" ry="3"/><ellipse cx="90" cy="74" rx="5" ry="3"/></g>
+  <g class="arsa__zzz" fill="none" stroke="#5f6368" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path class="arsa__z arsa__z--a" d="M92 28h8l-8 8h8"/><path class="arsa__z arsa__z--b" d="M104 12h6l-6 6h6"/></g>
+  <g class="arsa__sparkles" fill="#fbbc04"><path d="M12 22l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/><path d="M106 18l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z"/></g>
+</svg>
+    </div>
+  </section>
+
+  <section class="section section--surface" id="cara-kerja" data-chapter="4">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Arsipia datang</span>
+        <h2>Dari Drive yang berantakan ke arsip yang siap diwariskan, dalam empat langkah.</h2>
+        <p>Arsipia hanya menyarankan, kalian yang memutuskan.</p>
+      </div>
+      <div class="steps-wrap">
+        <div class="steps__line" aria-hidden="true"></div>
+        <ol class="steps">
+          <li class="step">
+            <h3>Hubungkan Drive</h3>
+            <p>Connect akun Google resmi tim atau organisasi, lalu pilih sendiri file dan folder yang ingin dirapikan.</p>
+          </li>
+          <li class="step">
+            <h3>Tinjau saran kategori</h3>
+            <p>Arsipia memindai file yang berantakan dan menyarankan lokasi tujuan secara batch.</p>
+          </li>
+          <li class="step">
+            <h3>Konfirmasi dan rapikan</h3>
+            <p>Setujui atau koreksi saran, lalu Arsipia mengeksekusi pemindahan file lewat Drive API.</p>
+          </li>
+          <li class="step">
+            <h3>Wariskan ke penerus</h3>
+            <p>Saat orang atau periode berganti, checklist serah terima memastikan arsip dan akses berpindah dengan rapi.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="fitur" data-chapter="5">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Pengetahuan bertahan</span>
+        <h2>Enam alat untuk menjaga arsip tetap hidup lintas <span data-term="period">tahun</span>.</h2>
+        <p>Dirancang untuk siklus kerja tim dan organisasi, dari proyek singkat sampai pergantian kepengurusan.</p>
+      </div>
+      <div class="cards cards--3">
+        <article class="card card--primary">
+          <span class="card__badge">Fitur utama</span>
+          <div class="tile tile--blue">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19L19 5"/><path d="M14 4v3M12.5 5.5h3M19 11v3M17.5 12.5h3"/></svg>
+          </div>
+          <h3>Auto-Organize dengan Konfirmasi</h3>
+          <p>Arsipia menyarankan folder tujuan untuk file yang berantakan. Kalian tinjau, koreksi, lalu konfirmasi, dan Arsipia yang eksekusi lewat Drive API.</p>
+        </article>
+        <article class="card">
+          <div class="tile tile--green">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="5" rx="1"/><rect x="14" y="10" width="7" height="5" rx="1"/><rect x="14" y="17" width="7" height="4" rx="1"/><path d="M6.5 8v10a1 1 0 0 0 1 1H14M6.5 12.5H14"/></svg>
+          </div>
+          <h3>Automated Folder Architecture</h3>
+          <p>Struktur folder standar dibuat otomatis setiap periode, proyek, atau event baru, bisa memakai ulang template yang sudah terbukti bekerja.</p>
+        </article>
+        <article class="card">
+          <div class="tile tile--purple">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M3.5 6l1.2 1.2L6.5 5M3.5 12l1.2 1.2 1.8-2.2M3.5 18l1.2 1.2 1.8-2.2"/></svg>
+          </div>
+          <h3>Handover &amp; Succession Hub</h3>
+          <p>Checklist serah terima jabatan atau tugas yang diverifikasi Arsipia, memastikan pengetahuan benar-benar terwariskan, bukan sekadar dijanjikan.</p>
+        </article>
+        <article class="card">
+          <div class="tile tile--yellow">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 19a6 6 0 0 1 12 0"/><path d="M16 5a3 3 0 0 1 0 6M18 19a6 6 0 0 0-3-5"/></svg>
+          </div>
+          <h3>Direktori Kontak</h3>
+          <p>Basis data vendor, klien, pembicara, dan sponsor yang tersambung lintas periode, bukan hilang tiap orang berganti.</p>
+        </article>
+        <article class="card">
+          <div class="tile tile--teal">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16"/></svg>
+          </div>
+          <h3>Manajemen Proyek</h3>
+          <p>Task board sederhana untuk koordinasi kerja harian tim yang sedang aktif.</p>
+        </article>
+        <article class="card">
+          <div class="tile tile--red">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg>
+          </div>
+          <h3>Pencarian Lintas Generasi</h3>
+          <p>Cari dokumen berdasarkan nama, kategori, atau tag, mencakup seluruh periode, lama maupun baru.</p>
+        </article>
+      </div>
+
+      <div class="teaser">
+        <div class="tile tile--yellow">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="5.5"/><path d="M8.7 13.6L7.5 21l4.5-2.5 4.5 2.5-1.2-7.4"/><path d="M10 9l1.5 1.5L14.2 7.8"/></svg>
+        </div>
+        <p><strong>Arsip rapi itu menyenangkan.</strong> Kumpulkan skor kerapian, buka lencana, dan rayakan serah terima dengan konfeti.</p>
+              </div>
+    </div>
+  </section>
+
+  <section class="section" id="mulai" data-chapter="6" style="padding-top: 0;">
+    <div class="container">
+      <div class="cta">
+        <svg class="arsa cta__arsa" id="ctaArsa" data-pet="data-pet" data-expr="happy" viewBox="0 0 120 120" width="96" height="96" xmlns="http://www.w3.org/2000/svg"  aria-hidden="true" >
+  <g stroke="#f9ab00" stroke-width="5" stroke-linecap="round"><path d="M46 108v6M74 108v6"/></g>
+  <path class="arsa__wing arsa__wing--l" d="M22 62C10 74 12 96 30 104L38 66Z" fill="#1765cc"/>
+  <path class="arsa__wing arsa__wing--r" d="M98 62C110 74 108 96 90 104L82 66Z" fill="#1765cc"/>
+  <path d="M22 44L26 14L46 28Q60 24 74 28L94 14L98 44Q106 60 102 82Q96 110 60 110Q24 110 18 82Q14 60 22 44Z" fill="#1a73e8"/>
+  <ellipse cx="60" cy="88" rx="26" ry="19" fill="#e8f0fe"/>
+  <path d="M50 84q4 4 8 0M62 84q4 4 8 0M56 94q4 4 8 0" stroke="#aecbfa" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <circle cx="43" cy="56" r="15" fill="#fff"/>
+  <circle cx="77" cy="56" r="15" fill="#fff"/>
+  <g class="arsa__eyes arsa__eyes--open">
+    <g class="arsa__pupils">
+      <circle cx="43" cy="57" r="6.5" fill="#202124"/><circle cx="77" cy="57" r="6.5" fill="#202124"/>
+      <circle cx="45" cy="54.5" r="2" fill="#fff"/><circle cx="79" cy="54.5" r="2" fill="#fff"/>
+    </g>
+  </g>
+  <g class="arsa__eyes arsa__eyes--happy" fill="none" stroke="#202124" stroke-width="3.6" stroke-linecap="round"><path d="M36 60q7-10 14 0M70 60q7-10 14 0"/></g>
+  <g class="arsa__eyes arsa__eyes--closed" fill="none" stroke="#202124" stroke-width="3.6" stroke-linecap="round"><path d="M36 58q7 6 14 0M70 58q7 6 14 0"/></g>
+  <g fill="none" stroke="#202124" stroke-width="2.6"><circle cx="43" cy="56" r="17"/><circle cx="77" cy="56" r="17"/></g>
+  <path class="arsa__brow arsa__brow--think" d="M30 36l14 3M90 34l-14 3" fill="none" stroke="#202124" stroke-width="3" stroke-linecap="round"/>
+  <path class="arsa__brow arsa__brow--shock" d="M33 33q10-6 20 0M67 33q10-6 20 0" fill="none" stroke="#202124" stroke-width="3" stroke-linecap="round"/>
+  <path d="M54 68h12l-6 11z" fill="#fbbc04"/>
+  <g class="arsa__cheeks" fill="#f28b82"><ellipse cx="30" cy="74" rx="5" ry="3"/><ellipse cx="90" cy="74" rx="5" ry="3"/></g>
+  <g class="arsa__zzz" fill="none" stroke="#5f6368" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path class="arsa__z arsa__z--a" d="M92 28h8l-8 8h8"/><path class="arsa__z arsa__z--b" d="M104 12h6l-6 6h6"/></g>
+  <g class="arsa__sparkles" fill="#fbbc04"><path d="M12 22l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/><path d="M106 18l1.6 4 4 1.6-4 1.6-1.6 4-1.6-4-4-1.6 4-1.6z"/></g>
+</svg>
+        <h2>Siapa pun yang meneruskan, tidak mulai dari nol.</h2>
+        <p>Gratis untuk dicoba selama masa uji. Daftarkan tim atau organisasi kalian sekarang.</p>
+        <form class="cta-form" id="cta-form" method="POST"
+           action="/#mulai" name="minat" data-netlify="true" netlify-honeypot="bot-field"
+          >
+                      <input type="hidden" name="form-name" value="minat">
+            <p hidden><label>Jangan diisi: <input name="bot-field"></label></p>
+                    <input type="email" name="email" value="" placeholder="email tim atau organisasi kalian" aria-label="Email tim atau organisasi" required maxlength="255">
+          <button type="submit" class="btn btn-primary">Daftar Minat</button>
+        </form>
+        <p class="cta-note" id="cta-note" role="status"></p>
+              </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a href="#top" class="brand"><img class="brand__mark" src="/assets/img/arsipia-icon.svg" alt="" width="30" height="30">Arsipia</a>
+        <p style="margin-top: 1rem;">Preserving Knowledge, Streamlining Operations. Otomasi Google Drive untuk tim dan organisasi.</p>
+      </div>
+      <div>
+        <h4>Jelajahi</h4>
+        <ul>
+          <li><a href="#masalah">Masalah</a></li>
+          <li><a href="#cara-kerja">Cara Kerja</a></li>
+          <li><a href="#fitur">Fitur</a></li>
+                  </ul>
+      </div>
+      <div>
+        <h4>Selaras dengan SDG</h4>
+        <p>SDG 4 (Quality Education) dan SDG 16 (Peace, Justice and Strong Institutions): tim dan organisasi yang transparan, akuntabel, dan berkesinambungan.</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Arsipia · Dibuat oleh orang yang pernah kehilangan file penting.</span>
+      <span>Proyek Akhir Praktikum Pemrograman Web</span>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/nav.js"></script>
+<script type="module" src="/assets/js/splash.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="/assets/js/script.js"></script>
+  <script type="module" src="/assets/js/hero-demo.js"></script>
+  <script type="module" src="/assets/js/scroll.js"></script>
+  <script type="module" src="/assets/js/ambient.js"></script>
+  <script type="module" src="/assets/js/arsa-pet.js"></script>
+  <script type="module" src="/assets/js/chaos-repel.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+.arsa {
+  display: block;
+  overflow: visible;
+}
+
+.arsa__eyes--happy,
+.arsa__eyes--closed,
+.arsa__brow,
+.arsa__cheeks,
+.arsa__zzz,
+.arsa__sparkles {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.arsa__cheeks { fill-opacity: 0.55; }
+
+.arsa__eyes--open {
+  transform: translate(var(--look-x, 0px), var(--look-y, 0px));
+  transition: opacity 0.2s ease, transform 0.12s ease-out;
+}
+
+/* Berkedip */
+.arsa.is-blink:not([data-expr="celebrate"]) .arsa__eyes--open,
+.arsa.is-blink:not([data-expr="celebrate"]) .arsa__eyes--closed {
+  transition-duration: 0.05s;
+}
+
+.arsa.is-blink:not([data-expr="celebrate"]) .arsa__eyes--open { opacity: 0; }
+.arsa.is-blink:not([data-expr="celebrate"]) .arsa__eyes--closed { opacity: 1; }
+
+/* Maskot yang bisa diajak main: diklik, di-hover, dan diseret (arsa-pet.js) */
+.arsa[data-pet] {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: scale 0.2s ease;
+}
+
+/* Hanya maskot utama di bagian atas tiap halaman yang boleh diseret; sisanya cukup diklik. */
+.arsa[data-pet-drag] {
+  cursor: grab;
+  touch-action: none;
+}
+
+.arsa[data-pet]:hover { scale: 1.07; }
+
+.arsa[data-pet].is-dragging {
+  cursor: grabbing;
+  scale: 1.1;
+  /* Miring dihaluskan, bukan loncat; badan berayun pelan seperti menggantung. Sayap mengepak seperti
+     saat terbang pulang (kelas is-flying). */
+  transition: rotate 0.14s ease-out;
+  transform-origin: 50% 12%;
+  animation: arsa-dangle 0.7s ease-in-out infinite alternate;
+}
+
+@keyframes arsa-dangle {
+  from { transform: rotate(-3deg) translateY(0); }
+  to { transform: rotate(3deg) translateY(3px); }
+}
+
+.arsa.is-flying .arsa__wing--l { animation: flap-l 0.2s ease-in-out infinite alternate; transform-origin: 100% 0; }
+.arsa.is-flying .arsa__wing--r { animation: flap-r 0.2s ease-in-out infinite alternate; transform-origin: 0 0; }
+
+@keyframes flap-l { from { transform: rotate(10deg); } to { transform: rotate(-52deg); } }
+@keyframes flap-r { from { transform: rotate(-10deg); } to { transform: rotate(52deg); } }
+
+/* Bulu yang rontok saat Arsa terbang pulang */
+.pet-feather {
+  position: fixed;
+  z-index: 75;
+  width: 7px;
+  height: 14px;
+  margin: -7px 0 0 -3px;
+  border-radius: 80% 20% 80% 20%;
+  background: linear-gradient(135deg, #fff, #aecbfa);
+  box-shadow: 0 0 0 1px rgba(26, 115, 232, 0.25);
+  pointer-events: none;
+}
+
+.arsa__pupils,
+.arsa__wing {
+  transition: transform 0.3s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.arsa[data-expr="happy"] .arsa__cheeks { opacity: 1; }
+
+.arsa[data-expr="think"] .arsa__brow--think { opacity: 1; }
+.arsa[data-expr="think"] .arsa__pupils { transform: translate(3px, -3px); }
+
+.arsa[data-expr="shock"] .arsa__brow--shock { opacity: 1; }
+.arsa[data-expr="shock"] .arsa__pupils { transform: scale(0.7); }
+
+.arsa[data-expr="sleep"] .arsa__eyes--open { opacity: 0; }
+.arsa[data-expr="sleep"] .arsa__eyes--closed { opacity: 1; }
+.arsa[data-expr="sleep"] .arsa__zzz { opacity: 1; }
+
+/* Tidur: bernapas pelan dan "zzz" melayang naik bergantian */
+.arsa[data-expr="sleep"] {
+  transform-origin: 50% 100%;
+  animation: arsa-breathe 3.2s ease-in-out infinite;
+}
+
+.arsa[data-expr="sleep"] .arsa__z {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: zzz-float 2.6s ease-in-out infinite;
+}
+
+.arsa[data-expr="sleep"] .arsa__z--b { animation-delay: 1.3s; }
+
+@keyframes arsa-breathe {
+  0%, 100% { transform: scale(1, 1); }
+  50% { transform: scale(1.02, 1.045); }
+}
+
+@keyframes zzz-float {
+  0% { opacity: 0; transform: translate(-4px, 8px) scale(0.6); }
+  25% { opacity: 1; }
+  100% { opacity: 0; transform: translate(9px, -16px) scale(1.15); }
+}
+
+.arsa[data-expr="celebrate"] .arsa__eyes--open { opacity: 0; }
+.arsa[data-expr="celebrate"] .arsa__eyes--happy { opacity: 1; }
+.arsa[data-expr="celebrate"] .arsa__cheeks { opacity: 1; }
+.arsa[data-expr="celebrate"] .arsa__sparkles { opacity: 1; }
+.arsa[data-expr="celebrate"] .arsa__wing--l { transform: rotate(-22deg); transform-origin: 100% 0; }
+.arsa[data-expr="celebrate"] .arsa__wing--r { transform: rotate(22deg); transform-origin: 0 0; }
+.arsa[data-expr="celebrate"] { animation: arsa-bounce 0.6s ease-in-out infinite alternate; }
+
+@keyframes arsa-bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arsa { animation: none !important; }
+  .arsa.is-flying .arsa__wing { animation: none; }
+  .arsa[data-expr="sleep"] .arsa__z { animation: none; }
+}
